@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $films = \App\Film::query()->get();
+    $directors = \App\Director::query()->get();
+    return view('welcome', compact('films', 'directors'));
 });
